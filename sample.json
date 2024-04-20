@@ -1,8 +1,46 @@
 {
-  "prompt": "竣工年次1972年の単純PCプレテンT桁橋の主桁の写真です。この橋は精密な点検を必要としますか？",
-  "additionalInfo": "主桁の下フランジ側面に鉄筋露出(150×200×20mm)が見られる",
-  "answer": "この橋梁は精密検査を必要としていません。この損傷は、縦目地からの路面水の影響により、かぶり不足の鉄筋が腐食・膨張 し、露出したと推定されます。前回の点検に記録はなく、縦目地からの漏水が継続するため、損傷が進行する可能性は高いが、局所的な鉄筋露出であることから直ちに部材の耐荷力が低下する状況ではない。",
-  "ddd": {
-    "e": "eee"
-  }
+    "1": {
+        "image": [
+            "/Users/tsurutashuichi/PycharmProjects/pythonProject2/image_strage/dog.犬.1-1.jpg"
+        ],
+        "prompt": "白色でイギリス出身の犬です。この犬をペットにしたいですか？",
+        "additionalInfo": {
+            "fixedInfo": "(犬の場合は情報なし)",
+            "not_fixedInfo": {
+                "item1": "躍動感のある走り",
+                "item2": "芝生の上を走っている"
+            }
+        },
+        "answer": "はい、この犬をペットにしたいです。柔らかそうな毛並みがとても好印象です。"
+    }
+}{
+    "2": {
+        "image": [
+            "/Users/tsurutashuichi/PycharmProjects/pythonProject2/image_strage/dog.犬.1-2.jpg"
+        ],
+        "prompt": "茶色でアメリカ出身の犬です。この犬をペットにしたいですか？",
+        "additionalInfo": {
+            "fixedInfo": "(犬の場合は情報なし)",
+            "not_fixedInfo": {
+                "item1": "首をかしげている",
+                "item2": "伏せのポーズをとっている"
+            }
+        },
+        "answer": "はい、この犬をペットにしたいです。可愛らしい顔がとても好印象です。"
+    }
+}{
+    "3": {
+        "image": [
+            "/Users/tsurutashuichi/PycharmProjects/pythonProject2/image_strage/dog.犬.2-1.jpg"
+        ],
+        "prompt": "茶色で日本出身の犬です。この犬をペットにしたいですか？",
+        "additionalInfo": {
+            "fixedInfo": "(犬の場合は情報なし)",
+            "not_fixedInfo": {
+                "item1": "笑っている",
+                "item2": "首輪をしている"
+            }
+        },
+        "answer": "いいえ、この犬をペットにしたくないです。悪くはないのですが、他にもっと好きな犬種があります。"
+    }
 }
