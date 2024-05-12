@@ -1,7 +1,6 @@
 import json#jsonファイル作成
 import openpyxl#excelファイル連携
-import glob #指定フォルダから画像抽出
-import cv2 #画像表示(現時点ではデバック用)
+import glob #指定フォルダから画像抽出 
 
 
 ##################################################
@@ -28,36 +27,39 @@ wb = openpyxl.load_workbook(excelFile)
 sheet = wb['Sheet1']
 
 
-
 #対象エクセルの行数分だけ繰り返し
 count = startRow
 while count < endRow +1:
 
 #imageファイルをフォルダから抽出
     imageFromExcel = sheet.cell(row=count, column=2).value
-    img = glob.glob('/Users/tsurutashuichi/PycharmProjects/pythonProject2/image_strage/'+imageFromExcel)
+    img = glob.glob('/Users/yokot/Documents/vscode_Json_LLAVA/Json_Creator'+ imageFromExcel)
 
 #promptを生成（最後の一文は「この犬をペットにしたいですか？」）
-    margeCell = sheet.cell(row=count, column=3).value\
-                +'で'+sheet.cell(row=count, column=4).value\
-                    +'出身の犬です。'\
-                        +'この犬をペットにしたいですか？'
+    margeCell = sheet.cell(row=count, column=5).value\
+                +'竣工の'+sheet.cell(row=count, column=6).value\
+                    +'の'+sheet.cell(row=count, column=7).value\
+                        +'の写真です。'\
+                            +'この橋梁は精密な検査を必要としますか？'   
 
 #JSONファイルを作成
     tuningSet = {
         sheet.cell(row=count, column=1).value:{
         'image':img,
         'prompt':margeCell,
-        'additionalInfo':{'fixedInfo':"(犬の場合は情報なし)",
+        'additionalInfo':{'fixedInfo':{
+                              'item1':sheet.cell(row=count, column=8).value,},
                           'not_fixedInfo':{
-                              'item1':sheet.cell(row=count, column=5).value,
-                              'item2':sheet.cell(row=count, column=6).value}},
-        'answer':sheet.cell(row=count, column=7).value,
+                              'item2':sheet.cell(row=count, column=9).value,
+                              'item3':sheet.cell(row=count, column=10).value,
+                              'item4':sheet.cell(row=count, column=11).value}},
+        'answer':sheet.cell(row=count, column=12).value\
+                     + 'その理由は次のとおりです'+sheet.cell(row=count, column=13).value\
         }
     }
 
     out = json.dumps(tuningSet, indent=4, ensure_ascii=False)
-    with open('sample.json', 'a', encoding='utf-8') as fout:
+    with open('LLava.json2', 'a', encoding='utf-8') as fout:
         fout.write(out)
 
     count += 1
