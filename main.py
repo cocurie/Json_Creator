@@ -1,6 +1,7 @@
 import json#jsonファイル作成
 import openpyxl#excelファイル連携
 import glob #指定フォルダから画像抽出 
+import cv2 #画像表示(現時点ではデバック用)
 
 
 ##################################################
@@ -33,8 +34,8 @@ while count < endRow +1:
 
 #imageファイルをフォルダから抽出
     imageFromExcel = sheet.cell(row=count, column=2).value
-    img = glob.glob('/Users/yokot/Documents/vscode_Json_LLAVA/Json_Creator'+ imageFromExcel)
-
+    img = glob.glob('/Users/yokot/Documents/vscode_Json_LLAVA/Json_Creator/image_strage/'+imageFromExcel)
+                    
 #promptを生成（最後の一文は「この犬をペットにしたいですか？」）
     margeCell = sheet.cell(row=count, column=5).value\
                 +'竣工の'+sheet.cell(row=count, column=6).value\
