@@ -1,7 +1,7 @@
 import json#jsonファイル作成
 import openpyxl#excelファイル連携
 import glob #指定フォルダから画像抽出 
-import cv2 #画像表示(現時点ではデバック用)
+
 
 
 ##################################################
@@ -9,11 +9,11 @@ import cv2 #画像表示(現時点ではデバック用)
 ##################################################
 
 #【手順１】取り込むexcelファイルを「main.py」と同じディレクトリに入れて、以下でファイル名を指定（''の中を変更）
-excelFile = 'forTest.xlsx'
+excelFile = 'llava0519.xlsx'
 
 #【手順２】取り込むexcelファイルの初めの行と終わりの行を指定
 startRow = 3
-endRow = 5
+endRow = 114
 
 
 
@@ -49,13 +49,16 @@ while count < endRow +1:
         'image':img,
         'prompt':margeCell,
         'additionalInfo':{'fixedInfo':{
-                              'item1':sheet.cell(row=count, column=8).value,},
+                              'item1':sheet.cell(row=count, column=8).value,
+                              'item2':sheet.cell(row=count, column=9).value,},
                           'not_fixedInfo':{
-                              'item2':sheet.cell(row=count, column=9).value,
                               'item3':sheet.cell(row=count, column=10).value,
-                              'item4':sheet.cell(row=count, column=11).value}},
-        'answer':sheet.cell(row=count, column=12).value\
-                     + 'その理由は次のとおりです'+sheet.cell(row=count, column=13).value\
+                              'item4':sheet.cell(row=count, column=11).value,
+                              'item5':sheet.cell(row=count, column=12).value,
+                              'item6':sheet.cell(row=count, column=13).value},
+        'answer':sheet.cell(row=count, column=14).value\
+                     + 'その理由は次のとおりです'+sheet.cell(row=count, column=15).value\
+        }
         }
     }
 
